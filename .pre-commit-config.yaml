@@ -1,0 +1,35 @@
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: 44e1753f98b0da305332abe26856c3e621c5c439
+    hooks:
+    -   id: flake8
+        language_version: python3
+        args:
+        - --ignore=E501,F401,E712,W503
+        exclude: alembic/*
+    -   id: check-yaml
+        language_version: python3
+    -   id: end-of-file-fixer
+        language_version: python3
+    -   id: trailing-whitespace
+        language_version: python3
+-   repo: git://github.com/pre-commit/mirrors-pylint
+    sha: 029186c31774c24af446c428eafc59ce8980dcb9
+    hooks:
+    -   id: pylint
+        language_version: python3
+        args:
+        - --rcfile=.pylintrc
+        exclude: alembic/*
+-   repo: git://github.com/asottile/reorder_python_imports
+    sha: 017e2f64306853ec7f000db52b8280da27eb3b96
+    hooks:
+    -   id: reorder-python-imports
+        language_version: python3
+-   repo: git://github.com/FalconSocial/pre-commit-mirrors-pep257
+    sha: 149e61b7a717945143fe51f010fe1c576e729a9f
+    hooks:
+    -   id: pep257
+        language_version: python3
+        args:
+        - --ignore=D301,D203
+        exclude: alembic/*
