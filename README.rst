@@ -10,7 +10,7 @@ Currently ``envparse`` is not distributes via pypi, so to get your hands on it, 
 
 .. code-block:: shell
 
-    $ pip install git+git://github.com/cknv/statsd.git
+    $ pip install git+git://github.com/cknv/envparse.git
 
 Using
 -----
