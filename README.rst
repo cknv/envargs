@@ -6,7 +6,7 @@ Simple means of parsing and validating envvars. Heavily inspired by the earlier 
 Installing
 ----------
 
-Currently ``envparse`` is not distributes via pypi, so to get your hands on it, you will have to pip install via git.
+Currently ``envparse`` is not distributed via pypi, so to get your hands on it, you will have to pip install via git.
 
 .. code-block:: shell
 
