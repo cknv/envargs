@@ -3,6 +3,15 @@ Envparse
 
 Simple means of parsing and validating envvars. Heavily inspired by the earlier versions of webargs.
 
+Installing
+----------
+
+Currently ``envparse`` is not distributes via pypi, so to get your hands on it, you will have to pip install via git.
+
+.. code-block:: shell
+
+    $ pip install git+git://github.com/cknv/statsd.git
+
 Using
 -----
 

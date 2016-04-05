@@ -5,7 +5,7 @@
         language_version: python3
         args:
         - --ignore=E501,F401,E712,W503
-        exclude: alembic/*
+        exclude: setup.py
     -   id: check-yaml
         language_version: python3
     -   id: end-of-file-fixer
@@ -19,7 +19,7 @@
         language_version: python3
         args:
         - --rcfile=.pylintrc
-        exclude: alembic/*
+        exclude: setup.py
 -   repo: git://github.com/asottile/reorder_python_imports
     sha: 017e2f64306853ec7f000db52b8280da27eb3b96
     hooks:
@@ -32,4 +32,4 @@
         language_version: python3
         args:
         - --ignore=D301,D203
-        exclude: alembic/*
+        exclude: setup.py
