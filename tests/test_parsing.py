@@ -67,6 +67,8 @@ def test_multi_validation():
             load_from='A_VAR',
             validate=(
                 bool,
+                lambda x: x > 9,
+                lambda x: x < 11,
                 lambda x: x == 10,
             ),
         ),
