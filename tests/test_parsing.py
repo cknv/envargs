@@ -1,15 +1,15 @@
 """Test that parsing works."""
 import os
 
-from envparse import Field
 from envparse import parse_dict
 from envparse import parse_env
+from envparse import Var
 
 
 def test_simple_dict_parsing():
     """Simple test for a dict."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
         ),
@@ -27,7 +27,7 @@ def test_simple_dict_parsing():
 def test_simple_envvar_parsing():
     """Simple test for preset envvars."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
         ),
@@ -43,7 +43,7 @@ def test_simple_envvar_parsing():
 def test_validation_with_lambda():
     """Test validation with a lambda."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
             validate=lambda x: x == 0
@@ -62,7 +62,7 @@ def test_validation_with_lambda():
 def test_multi_validation():
     """Test multiple validation functions."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
             validate=(
@@ -84,12 +84,12 @@ def test_multi_validation():
 def test_many_values():
     """Test parsing of several values work."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
             validate=lambda x: x == 0
         ),
-        'some_string': Field(
+        'some_string': Var(
             use=lambda x: x.lower(),
             load_from='SOME_STRING',
         ),
@@ -109,7 +109,7 @@ def test_many_values():
 def test_default():
     """Test that setting a default works."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
             default=5,
@@ -126,7 +126,7 @@ def test_default():
 def test_default_name():
     """Test that using the default name works too."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
         ),
     }
@@ -151,7 +151,7 @@ def test_custom_function_boolean():
         }
 
     args = {
-        'a_bool': Field(
+        'a_bool': Var(
             use=parse_bool,
             validate=lambda parsed: isinstance(parsed, bool)
         ),
@@ -175,7 +175,7 @@ def test_custom_function_int_list():
         ]
 
     args = {
-        'a_list': Field(
+        'a_list': Var(
             use=parse_list,
             validate=(
                 lambda parsed: isinstance(parsed, list),

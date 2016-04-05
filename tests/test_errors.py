@@ -2,14 +2,14 @@
 from pytest import raises
 
 from envparse import errors
-from envparse import Field
 from envparse import parse_dict
+from envparse import Var
 
 
 def test_parse_fail():
     """Simple case that fails to parse."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
         ),
@@ -26,7 +26,7 @@ def test_parse_fail():
 def test_validation_with_lambda_fail():
     """Simple case that fails to validate."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
             validate=lambda x: x == 0,
@@ -44,7 +44,7 @@ def test_validation_with_lambda_fail():
 def test_missing_value():
     """Test case that fails because of a missing value."""
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
             validate=lambda x: x == 0,
@@ -64,7 +64,7 @@ def test_fancy_validation_function():
             raise errors.ValidationError
 
     args = {
-        'a_var': Field(
+        'a_var': Var(
             use=int,
             load_from='A_VAR',
             validate=validation_function,

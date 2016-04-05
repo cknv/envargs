@@ -1,9 +1,9 @@
-"""Everthing about fields."""
+"""Everthing about vars."""
 from . import errors
 
 
-class Field:
-    """Representing a required field in the dictionary.
+class Var:
+    """Representing a required var in the dictionary.
 
     Including the means to parse and potentially validate it.
     """
@@ -18,7 +18,7 @@ class Field:
 
     def __repr__(self):
         """Return the representation."""
-        return '<Field use={}, validate={}, load_from={} default={}>'.format(
+        return '<Var use={}, validate={}, load_from={} default={}>'.format(
             self.use,
             self.validate_with,
             self.load_from,
