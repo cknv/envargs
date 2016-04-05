@@ -1,9 +1,9 @@
 """Test that parsing works."""
 import os
 
-from envparse import parse_dict
-from envparse import parse_env
-from envparse import Var
+from envargs import parse_dict
+from envargs import parse_env
+from envargs import Var
 
 
 def test_simple_dict_parsing():

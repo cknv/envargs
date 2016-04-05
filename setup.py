@@ -7,13 +7,13 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='envparsing',
+    name='envargs',
     version='0.1.0',
 
     description='Parsing and validation of environment variables',
     long_description=long_description,
 
-    url='https://github.com/cknv/envparse',
+    url='https://github.com/cknv/envargs',
 
     author='Esben Sonne',
     author_email='esbensonne+code@gmail.com',
@@ -29,5 +29,5 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
 
-    packages=['envparse'],
+    packages=['envargs'],
 )

@@ -1,23 +1,23 @@
-Envparse
+envargs
 ========
 
-Simple means of parsing and validating envvars. Heavily inspired by the earlier versions of webargs.
+Simple means of parsing and validating environment variables. Heavily inspired by the earlier versions of webargs, which also explains the name to some extend.
 
 Installing
 ----------
 
-Currently ``envparse`` is not distributed via pypi, so to get your hands on it, you will have to pip install via git.
+Currently ``envargs`` is not distributed via pypi, so to get your hands on it, you will have to pip install via git.
 
 .. code-block:: shell
 
-    $ pip install git+git://github.com/cknv/envparse.git
+    $ pip install envargs
 
 Using
 -----
 
 .. code-block:: python
 
-    from envparse import Var, parse_env
+    from envargs import Var, parse_env
 
     required_vars = {
         'a_int': Var(

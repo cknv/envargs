@@ -1,9 +1,9 @@
 """Test that parsing can fail."""
 from pytest import raises
 
-from envparse import errors
-from envparse import parse_dict
-from envparse import Var
+from envargs import errors
+from envargs import parse_dict
+from envargs import Var
 
 
 def test_parse_fail():
