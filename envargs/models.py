@@ -32,7 +32,7 @@ class Var:
             return self.use(value)
         except Exception as err:
             raise errors.ParseError(
-                'Parsing failed.',
+                self.err_msg or 'Parsing failed.',
                 value=value,
                 location=location,
             ) from err
