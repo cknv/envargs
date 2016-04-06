@@ -6,8 +6,6 @@ Simple means of parsing and validating environment variables. Heavily inspired b
 Installing
 ----------
 
-Currently ``envargs`` is not distributed via pypi, so to get your hands on it, you will have to pip install via git.
-
 .. code-block:: shell
 
     $ pip install envargs
