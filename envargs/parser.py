@@ -12,10 +12,11 @@ def _load_values(values, fields):
         if value is None:
             raise errors.ParseError(
                 'Required field missing.',
+                location=location,
             )
 
-        value = field.parse(value)
-        field.validate(value)
+        value = field.parse(value, location)
+        field.validate(value, location)
         yield dest, value
 
 

@@ -19,8 +19,13 @@ def test_parse_fail():
         'A_VAR': 'abc',
     }
 
-    with raises(errors.ParseError):
+    with raises(errors.ParseError) as err:
         parse_dict(values, args)
+
+    assert err.value.extra == {
+        'location': 'A_VAR',
+        'value': 'abc',
+    }
 
 
 def test_validation_with_lambda_fail():
@@ -37,8 +42,13 @@ def test_validation_with_lambda_fail():
         'A_VAR': '1',
     }
 
-    with raises(errors.ValidationError):
+    with raises(errors.ValidationError) as err:
         parse_dict(values, args)
+
+    assert err.value.extra == {
+        'value': 1,
+        'location': 'A_VAR',
+    }
 
 
 def test_missing_value():
@@ -53,15 +63,22 @@ def test_missing_value():
 
     values = {}
 
-    with raises(errors.ParseError):
+    with raises(errors.ParseError) as err:
         parse_dict(values, args)
+
+    assert err.value.extra == {
+        'location': 'A_VAR',
+    }
 
 
 def test_fancy_validation_function():
     """Test that fails to validate with a real function."""
     def validation_function(value):
         if value == 1:
-            raise errors.ValidationError
+            raise errors.ValidationError(
+                'Value not 1',
+                value=value,
+            )
 
     args = {
         'a_var': Var(
@@ -75,5 +92,9 @@ def test_fancy_validation_function():
         'A_VAR': '1',
     }
 
-    with raises(errors.ValidationError):
+    with raises(errors.ValidationError) as err:
         parse_dict(values, args)
+
+    assert err.value.extra == {
+        'value': 1,
+    }
