@@ -193,3 +193,20 @@ def test_custom_function_int_list():
     assert parse_dict(values, args) == {
         'a_list': [1, 2, 3, 4],
     }
+
+
+def test_complex_defaulting():
+    """Test that when defaulting, the functions are not used."""
+    args = {
+        'a_bool': Var(
+            use=lambda x: x.lower() in {'1', 't', 'true'},
+            validate=lambda x: isinstance(x, bool),
+            default=False,
+        ),
+    }
+
+    values = {}
+
+    assert parse_dict(values, args) == {
+        'a_bool': False,
+    }

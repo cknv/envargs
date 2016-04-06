@@ -8,16 +8,21 @@ def _load_values(values, fields):
     """Load values according to the fields."""
     for dest, field in fields.items():
         location = field.load_from or dest
-        value = values.get(location, field.default)
-        if value is None:
-            raise errors.ParseError(
-                'Required field missing.',
-                location=location,
-            )
+        value = values.get(location)
 
-        value = field.parse(value, location)
-        field.validate(value, location)
-        yield dest, value
+        if value is None:
+            if field.default is None:
+                raise errors.ParseError(
+                    'Required field missing.',
+                    location=location,
+                )
+
+            yield dest, field.default
+
+        else:
+            value = field.parse(value, location)
+            field.validate(value, location)
+            yield dest, value
 
 
 def parse_dict(values, fields):
