@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/cknv/envargs.svg?branch=master
+    :target: https://travis-ci.org/cknv/envargs
+
 Envargs
 ========
 
