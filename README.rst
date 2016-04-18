@@ -1,8 +1,9 @@
+Envargs
+========
+
 .. image:: https://travis-ci.org/cknv/envargs.svg?branch=master
     :target: https://travis-ci.org/cknv/envargs
 
-Envargs
-========
 
 Simple means of parsing and validating environment variables. Heavily inspired by the earlier versions of webargs, which also explains the name to some extend.
 
