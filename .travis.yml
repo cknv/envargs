@@ -1,5 +1,7 @@
 language: python
 python:
   - "3.5"
-install: "pip install -r requirements-dev.txt"
-script: "py.test"
+install: "pip install -r requirements-ci.txt"
+script: "py.test --cov envargs --cov-report term-missing"
+after_success:
+  - coveralls
