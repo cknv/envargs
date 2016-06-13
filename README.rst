@@ -4,7 +4,7 @@ Envargs
 .. image:: https://travis-ci.org/cknv/envargs.svg?branch=master
     :target: https://travis-ci.org/cknv/envargs
 
-.. image:: https://coveralls.io/repos/github/cknv/envargs/badge.svg?branch=coveralls :target: https://coveralls.io/github/cknv/envargs?branch=coveralls
+.. image:: https://coveralls.io/repos/github/cknv/envargs/badge.svg?branch=master :target: https://coveralls.io/github/cknv/envargs?branch=master
 
 Simple means of parsing and validating environment variables. Heavily inspired by the earlier versions of webargs, which also explains the name to some extend.
 
