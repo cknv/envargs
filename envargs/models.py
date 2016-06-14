@@ -19,7 +19,7 @@ class Var:
 
     def __repr__(self):
         """Return the representation."""
-        return '<Var use={}, validate={}, load_from={} default={}>'.format(
+        return '<Var use={}, validate={}, load_from={}, default={}>'.format(
             self.use,
             self.validate_with,
             self.load_from,
