@@ -24,18 +24,21 @@ Using
     from envargs import Var, parse_env
 
     required_vars = {
-        'a_int': Var(
+        'A_INT': Var(
             use=int,
-            load_from='A_VAR',
             validate=lambda x: x >= 0,
         ),
-        'a_list': Var(
+        'A_LIST': Var(
             use=lambda x: x.split(','),
-            load_from='A_LIST',
             validate=(
                 lambda x: len(x) == 2,
                 lambda x: x[0] == 'first element',
             ),
+        ),
+        'A_STR': Var(
+            use=str,
+            load_from='SOME_OTHER_NAME',
+            validate=bool,
         ),
     }
 
