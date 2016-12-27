@@ -53,4 +53,4 @@ Say you want to configure your Flask app using this:
 Why reinvent the wheel again?
 -----------------------------
 
-To be fair there are many good packages out there to parse environment variables, quite a few of them in python too. So this package can easily be seen as redundant. However, with separation of parsing and validation into two separate functions, you gain more power to control what is actually accepted, not to mention that it makes it possible to inline a few more things, as you can use simple buildins for most things and then lambdas for most validation.
+To be fair there are many good packages out there to parse environment variables, quite a few of them in python too. So this package can easily be seen as redundant. However, with separation of parsing and validation into two separate functions, you gain more power to control what is actually accepted, not to mention that it makes it possible to inline a few more things, as you can most often get away with using builtin functions for most parsing and validation, and when that is not enough, lambdas or partials can do the rest.
