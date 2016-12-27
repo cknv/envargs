@@ -41,6 +41,12 @@ Using
 
     parsed = parse_env(required_vars)
 
+Say you want to configure your Flask app using this:
+
+.. code-block:: python
+
+    app.config.from_mapping(parsed)
+
 Why reinvent the wheel again?
 -----------------------------
 
