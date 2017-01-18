@@ -1,5 +1,5 @@
 test:
-	py.test
+	pytest
 
 publish:
 	python setup.py register
