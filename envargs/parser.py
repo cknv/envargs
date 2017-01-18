@@ -13,7 +13,7 @@ def _load_values(values, fields):
         if value is None:
             if field.default is None:
                 raise errors.ParseError(
-                    'Required field missing.',
+                    'Required field "{}" missing.'.format(location),
                     location=location,
                 )
 

@@ -69,6 +69,7 @@ def test_missing_value():
     assert err.value.extra == {
         'location': 'A_VAR',
     }
+    assert str(err.value) == 'Required field "A_VAR" missing.'
 
 
 def test_fancy_validation_function():
