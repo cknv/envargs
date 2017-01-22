@@ -11,3 +11,8 @@ def boolean(value):
     }
 
     return value.lower() in options
+
+
+def split_by_comma(value):
+    """Return the value split by commas."""
+    return value.split(',')

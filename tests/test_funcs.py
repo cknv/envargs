@@ -17,3 +17,12 @@ from envargs import inputs
 def test_boolean_parser(case, expected):
     """Test the default boolean parser."""
     assert inputs.boolean(case) == expected
+
+
+@pytest.mark.parametrize('case, expected', [
+    ('1', ['1']),
+    ('1,2,3', ['1', '2', '3']),
+])
+def test_split_by_comma(case, expected):
+    """Test the splitter."""
+    assert inputs.split_by_comma(case) == expected
