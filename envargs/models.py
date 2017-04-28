@@ -1,6 +1,6 @@
 """Everthing about vars."""
 from . import errors
-from . import helpers
+from . import utils
 
 
 class Var:
@@ -12,7 +12,7 @@ class Var:
     def __init__(self, use, validate=None, load_from=None, default=None, err_msg=None):
         """Return a new instance."""
         self.use = use
-        self.validate_with = helpers.callables(validate)
+        self.validate_with = utils.callables(validate)
         self.load_from = load_from
         self.default = default
         self.err_msg = err_msg

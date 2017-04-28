@@ -1,7 +1,7 @@
 """Testing the default parser functions."""
 import pytest
 
-from envargs import inputs
+from envargs import helpers
 
 
 @pytest.mark.parametrize('case, expected', [
@@ -16,7 +16,7 @@ from envargs import inputs
 ])
 def test_boolean_parser(case, expected):
     """Test the default boolean parser."""
-    assert inputs.boolean(case) == expected
+    assert helpers.boolean(case) == expected
 
 
 @pytest.mark.parametrize('case, expected', [
@@ -25,4 +25,4 @@ def test_boolean_parser(case, expected):
 ])
 def test_split_by_comma(case, expected):
     """Test the splitter."""
-    assert inputs.split_by_comma(case) == expected
+    assert helpers.split_by_comma(case) == expected

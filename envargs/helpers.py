@@ -1,9 +1,18 @@
-"""Smaller helper functions for taking care of repeated things."""
+"""Default value parsers. Does common things simply."""
 
 
-def callables(potential_callables):
-    """Ensure that the callables are in fact a sequence."""
-    if callable(potential_callables):
-        return [potential_callables]
+def boolean(value):
+    """Return true if the value indicates a truthiness."""
+    options = {
+        'true',
+        't',
+        '1',
+        'yes',
+    }
 
-    return potential_callables
+    return value.lower() in options
+
+
+def split_by_comma(value):
+    """Return the value split by commas."""
+    return value.split(',')
