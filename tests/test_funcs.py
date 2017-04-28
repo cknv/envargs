@@ -25,4 +25,15 @@ def test_boolean_parser(case, expected):
 ])
 def test_split_by_comma(case, expected):
     """Test the splitter."""
-    assert helpers.split_by_comma(case) == expected
+    splitter = helpers.split_by(',')
+    assert splitter(case) == expected
+
+
+@pytest.mark.parametrize('case, expected', [
+    ('1', [1]),
+    ('1,2,3', [1, 2, 3]),
+])
+def test_split_by_comma_and_convert(case, expected):
+    """Test the splitter."""
+    splitter = helpers.split_by(',', converter=int)
+    assert splitter(case) == expected

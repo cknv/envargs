@@ -13,6 +13,12 @@ def boolean(value):
     return value.lower() in options
 
 
-def split_by_comma(value):
+def split_by(separator, converter=None):
     """Return the value split by commas."""
-    return value.split(',')
+    def splitter(value):
+        return [
+            converter(each) if converter else each
+            for each in value.split(',')
+        ]
+
+    return splitter
