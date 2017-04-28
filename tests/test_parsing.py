@@ -4,6 +4,7 @@ import os
 from envargs import parse_dict
 from envargs import parse_env
 from envargs import Var
+from envargs import helpers
 
 
 def test_simple_dict_parsing():
@@ -144,17 +145,9 @@ def test_default_name():
 
 def test_custom_function_boolean():
     """Test that we can use a custom function to parse with."""
-    def parse_bool(value):
-        return value.lower() in {
-            'true',
-            'yes',
-            'y',
-            '1',
-        }
-
     args = {
         'a_bool': Var(
-            use=parse_bool,
+            use=helpers.boolean,
             validate=lambda parsed: isinstance(parsed, bool)
         ),
     }
@@ -170,15 +163,9 @@ def test_custom_function_boolean():
 
 def test_custom_function_int_list():
     """Test that we can have more complex parsing functions."""
-    def parse_list(value):
-        return [
-            int(each)
-            for each in value.split(',')
-        ]
-
     args = {
         'a_list': Var(
-            use=parse_list,
+            use=helpers.split_by(',', converter=int),
             validate=(
                 lambda parsed: isinstance(parsed, list),
                 lambda parsed: all(isinstance(each, int) for each in parsed),
@@ -199,7 +186,7 @@ def test_complex_defaulting():
     """Test that when defaulting, the functions are not used."""
     args = {
         'a_bool': Var(
-            use=lambda x: x.lower() in {'1', 't', 'true'},
+            use=helpers.boolean,
             validate=lambda x: isinstance(x, bool),
             default=False,
         ),
