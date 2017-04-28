@@ -197,3 +197,21 @@ def test_complex_defaulting():
     assert parse_dict(values, args) == {
         'a_bool': False,
     }
+
+
+def test_setting_value():
+    """Test parsing with a lambda."""
+    args = {
+        'a_set': Var(
+            use=lambda x: set(x.split(',')),
+            validate=lambda x: isinstance(x, set),
+        ),
+    }
+
+    values = {
+        'a_set': 'one,two',
+    }
+
+    assert parse_dict(values, args) == {
+        'a_set': {'one', 'two'},
+    }
