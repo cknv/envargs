@@ -21,7 +21,7 @@ Using
 
 .. code-block:: python
 
-    from envargs import Var, parse_env
+    from envargs import Var, parse_env, helpers
 
     required_vars = {
         'A_INT': Var(
@@ -29,7 +29,7 @@ Using
             validate=lambda x: x >= 0,
         ),
         'A_LIST': Var(
-            use=lambda x: x.split(','),
+            use=helpers.split_by(','),
             validate=(
                 lambda x: len(x) == 2,
                 lambda x: x[0] == 'first element',
