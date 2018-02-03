@@ -210,3 +210,25 @@ def test_complex_defaulting():
     assert parse_dict(values, args) == {
         'a_bool': False,
     }
+
+
+def test_nesting():
+    """Make sure we can parse nested structures."""
+    args = {
+        'nested': {
+            'a_str': Var(use=str),
+            'an_int': Var(use=int),
+        },
+    }
+
+    values = {
+        'a_str': 'this-is-my-string',
+        'an_int': '10'
+    }
+
+    assert parse_dict(values, args) == {
+        'nested': {
+            'a_str': 'this-is-my-string',
+            'an_int': 10,
+        },
+    }
