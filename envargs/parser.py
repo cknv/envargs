@@ -27,6 +27,8 @@ def _load_values(values, fields):
                 yield dest, value
         elif isinstance(field, dict):
             yield dest, dict(_load_values(values, field))
+        elif isinstance(field, (int, float, str, bytes)):
+            yield dest, field
 
 
 def parse_dict(values, fields):

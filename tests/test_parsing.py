@@ -232,3 +232,29 @@ def test_nesting():
             'an_int': 10,
         },
     }
+
+
+def test_static_vars():
+    """Test that hardcoded vars fall through parsing."""
+    args = {
+        'a_var': Var(
+            use=int,
+            load_from='A_VAR',
+        ),
+        'some_bytes': b'bytes!',
+        'a_string': 'my string',
+        'a_float': 1.5,
+        'a_int': 1,
+    }
+
+    values = {
+        'A_VAR': '0',
+    }
+
+    assert parse_dict(values, args) == {
+        'a_var': 0,
+        'some_bytes': b'bytes!',
+        'a_string': 'my string',
+        'a_float': 1.5,
+        'a_int': 1,
+    }
