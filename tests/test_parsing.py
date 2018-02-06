@@ -245,6 +245,7 @@ def test_static_vars():
         'a_string': 'my string',
         'a_float': 1.5,
         'a_int': 1,
+        'a_bool': True,
     }
 
     values = {
@@ -257,4 +258,5 @@ def test_static_vars():
         'a_string': 'my string',
         'a_float': 1.5,
         'a_int': 1,
+        'a_bool': True,
     }

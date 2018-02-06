@@ -27,7 +27,7 @@ def _load_values(values, fields):
                 yield dest, value
         elif isinstance(field, dict):
             yield dest, dict(_load_values(values, field))
-        elif isinstance(field, (int, float, str, bytes)):
+        elif isinstance(field, (int, float, str, bytes, bool)):
             yield dest, field
 
 
