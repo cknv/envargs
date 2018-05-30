@@ -22,7 +22,7 @@ def _load_values(values, fields):
                 yield dest, field.default
 
             else:
-                value = field.parse(value, location)
+                value = field.parse(value.strip(), location)
                 field.validate(value, location)
                 yield dest, value
         elif isinstance(field, dict):

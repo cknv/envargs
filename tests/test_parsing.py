@@ -232,3 +232,29 @@ def test_nesting():
             'an_int': 10,
         },
     }
+
+
+def test_numeric_var_with_spaces():
+    """Test that numbers are parsed properly even if they have spaces."""
+    args = {
+        'an_int': Var(use=int, load_from='AN_INT',),
+    }
+
+    os.environ['AN_INT'] = '0   '
+
+    assert parse_env(args) == {
+        'an_int': 0,
+    }
+
+
+def test_string_var_with_spaces():
+    """Test that string values are truncated."""
+    args = {
+        'a_var': Var(use=str, load_from='A_VAR',),
+    }
+
+    os.environ['A_VAR'] = ' username\n'
+
+    assert parse_env(args) == {
+        'a_var': 'username',
+    }
